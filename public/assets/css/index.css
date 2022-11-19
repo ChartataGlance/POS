@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   list-style: none;
+}
+:root {
+	--margi-auto: 0 auto;
+	--width: clamp(768px, 100vw, 2560px);
+	--heigh: clamp(50px, 2vw, 2vw);
+	--card-width: clamp(290px, 80vw, 614px);
+	--card-heigh: clamp(541px, 100vh, 819px);
+	--full-heigh: clamp(80vh, 90vh, 1440px);
+	--grid-colmn: 10% 80% 10%;
+	--ubuntu: "Ubuntu", monospace;
+	--poppins: "poppins", sans-serif;
+	--lato: "lato", sans-serif;
+	--background: rgb(34, 56, 78);
+	--fsh1: clamp(1rem, 1.5vw, 1.5rem);
+	--fsp: clamp(0.8rem, 0.5vw, 1rem);
+	--bgnone: none;
+	--bgalic: aliceblue;
+}
+:root {
+   --clr-background: rgb(30, 49, 69);
+   --clr-shade-light: #51cccc;
+   --clr-shade-midlight: #516288;
+   --clr-shade-mid: #132333;
+   --clr-shade-base: #00243d;
+   --clr-shade-dark: #001e33;
+   --10clr: #F6B3D5;
+   --30clr: #91789E;
+   --60clr: #13263a;
+
+   --font-small: 1rem;
+   --font-mid: 2rem;
+   --font-big: 4rem;
+
+   --border-color: var(--60clr);
+   --box-shadow: rgba(108, 108, 126, 0.1) 0px 4px 16px,
+      rgba(170, 170, 250, 0.1) 0px 8px 24px,
+      rgba(170, 17, 26, 0.1) 0px 16px 56px;
+}
+
+
+
+body {
+   width: "*";
+   max-width: 1368px;
+   margin: 0px auto;
+   min-width: 677px;
+   min-height: 100vh;
+   display: grid;
+   font-family: "ubuntu", sans-serif;
+   background: var(--clr-shade-dark);
+}
+
+
+
+main {
+   min-height: 1200px;
+   background: var(--clr-shade-dark);
+   border-right: 2vh solid var(--clr-shade-base);
+   border-left: 2vh solid var(--clr-shade-base);
+   /* box-shadow: var(--box-shadow); */
+}
