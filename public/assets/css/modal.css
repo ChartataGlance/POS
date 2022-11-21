@@ -1,0 +1,191 @@
+.js-items {
+   border: 2px solid #fff;
+   padding: 10px;
+   color: gray;
+   background: rgba(102, 102, 102, 0.059);
+   display: grid;
+   max-width: 95%;
+   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+   justify-items: center;
+}
+
+.items-card {
+   box-shadow: 0.2px 0.2px 3px #fff;
+   padding: 20px;
+}
+
+.cart-item-link {
+   padding: 10px;
+   box-shadow: 0.2px 0.2px 3px #fff;
+   color: gray;
+
+}
+
+.js-cart-count {
+   color: #fff;
+}
+
+.cart-html {
+   color: gainsboro;
+
+}
+
+.qty-input {
+   width: 60px;
+   line-height: 20px;
+   font-size: 2rem;
+   padding: 10px;
+
+}
+
+.popup-backdrop {
+   background: #000000;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   /* position: relative; */
+
+}
+
+.hide {
+   transform: translate(-50%, -50%)scale(0);
+   top: 0%;
+   left: 50%;
+}
+
+@keyframes appear {
+   0% {
+      transform: translate(-50%, -50%)scale(0);
+      top: 0;
+   }
+
+   100% {
+      transform: translate(-50%, -50%)scale(1);
+      top: 50%;
+   }
+}
+
+.popup {
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   transform: translate(-50%, -50%)scale(1);
+   animation: appear 0.1s cubic-bezier(.76, .07, .31, .65);
+}
+
+.tender {
+   min-width: 450px;
+   aspect-ratio: 16/9;
+   background: #ffffff22;
+   position: relative;
+   border-radius: 20px;
+
+}
+
+
+
+.btn-next {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   color: #3366ff;
+   height: 60px;
+   aspect-ratio: 16 / 9;
+   margin: 10px;
+   font-size: 1.5rem;
+   font-weight: 500;
+   border-radius: 9px;
+   padding: 6px;
+   background: none;
+   box-shadow: 0.2px 0.2px 3px #fff;
+}
+.btn-next-change {
+   position: absolute;
+   bottom: 0%;
+   left: 50%;
+   transform: translate(-50%, -50%)scale(1);
+   color: #fff;
+   width: 66%;
+   height: 20%;
+   
+   font-size: 2.5rem;
+   font-weight: 500;
+   border-radius: 9px;
+   background: none;
+   box-shadow: 0.2px 0.2px 3px #fff;
+
+}
+
+
+.btn-close {
+   position: absolute;
+   top: 0;
+   right: 0;
+   color: red;
+   height: 60px;
+   aspect-ratio: 16 / 9;
+   font-size: 1.5rem;
+   margin: 10px;
+   font-weight: 500;
+   border-radius: 9px;
+   padding: 6px;
+   background: none;
+   box-shadow: 0.2px 0.2px 3px #fff;
+   margin-left: 5px;
+}
+
+.input-pay-amount {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   text-align-last: right;
+   transform: translate(-50%, -50%)scale(1);
+   border: none;
+   padding: 0;
+   width: 10.5ch;
+   background: repeating-linear-gradient(90deg, rgb(66, 64, 64) 0, rgb(58, 56, 56) 1ch, transparent 0, transparent 1.5ch)
+   0 100%/10ch 2px no-repeat;
+   font: 5ch droid sans mono, consolas, monospace;
+   letter-spacing: 0.5ch;
+
+}
+.change-amount {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   text-align-last: right;
+   transform: translate(-50%, -50%)scale(1);
+   border: none;
+   padding: 0;
+   width: 10.5ch;
+   background: repeating-linear-gradient(90deg, rgb(49, 47, 47) 0, rgb(56, 52, 52) 1ch, transparent 0, transparent 1.5ch)
+   0 100%/10ch 2px no-repeat;
+   font: 5ch droid sans mono, consolas, monospace;
+   letter-spacing: 0.5ch;
+   color: aliceblue;
+
+}
+
+.input-pay-amount, input:focus {
+   outline: none;
+   color: dodgerblue;
+}
+.input-change {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   text-align-last: right;
+   transform: translate(-50%, -50%)scale(1);
+   border: none;
+   padding: 0;
+   width: 10.5ch;
+   background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch)
+   0 100%/10ch 2px no-repeat;
+   font: 5ch droid sans mono, consolas, monospace;
+   letter-spacing: 0.5ch;
+
+}
