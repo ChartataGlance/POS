@@ -40,11 +40,15 @@ function refresh_items_display() {
 	GTOTAL = grant_total;
 }
 function handle_result(result) {
+	// console.log(result);
 	var obj = JSON.parse(result);
 
 	if (typeof obj != "undefined") {
 		if (obj.data_type == "search") {
 			var mydiv = document.querySelector(".js-items");
+			mydiv.innerHTML = "";
+			PRODUCTS = [];
+			// var mydiv = document.querySelector(".js-items");
 			if (obj.data != "") {
 				PRODUCTS = obj.data;
 				for (var i = 0; i < obj.data.length; i++) {

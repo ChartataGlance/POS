@@ -5,4 +5,9 @@ if($tab == "products"){
    $productClass = new Products();
    $productlist = $productClass->query("select * from products order by id desc");
 }
-require views_path('admin/admin');
+if(Auth::access('supervisor'))
+{
+   require views_path('admin/admin');
+}
+require views_path('auth/denied');
+

@@ -2,7 +2,7 @@
 <?php require views_path('partials/header'); ?>
 <link rel="stylesheet" href="assets/css/modal.css">
 <style>
-	
+
 
 </style>
 <main>
@@ -35,20 +35,6 @@
 	</center>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<div onclick="hide_modal(event,'checkout')" class="popup-backdrop checkout hide" role="close-button">
 		<div class="popup">
 			<div class="tender">
@@ -56,7 +42,7 @@
 					<h1>Checkout</h1>
 				</center>
 				<button class="btn-close" role="close-button" onclick="hide_modal(event,'checkout')">cancel</button>
-				<input type="number" maxlength='7' placeholder="1000.00"  class="input-pay-amount">
+				<input type="number" maxlength='7' placeholder="1000.00" class="input-pay-amount">
 				<button role="close-button" onclick="validate_amount_paid(event)" class="btn-next-change">Calculate</button>
 			</div>
 		</div>
@@ -69,29 +55,11 @@
 				<center>
 					<h1>Change due</h1>
 				</center>
-				<div class="change-amount" ></div>
-				<button class="btn-next-change" role="close-button" onclick="hide_modal(event,'checkout')">Next</button>
+				<div class="change-amount"></div>
+				<button class="btn-next-change">Next</button>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </main>
 
 <script>
@@ -99,7 +67,8 @@
 	var ITEMS = [];
 	var BARCODE = false;
 	var main_input = document.querySelector(".js-search")
-	var GTOTAL  = 0;
+	var GTOTAL = 0;
+	var CHANGE = 0;
 
 	function search_item(e) {
 		var text = e.target.value.trim();
@@ -114,9 +83,7 @@
 		ajax.addEventListener('readystatechange', function(e) {
 			if (ajax.readyState === 4) {
 
-				var mydiv = document.querySelector(".js-items");
-				mydiv.innerHTML = "";
-				PRODUCTS = [];
+
 
 				if (ajax.status == 200) {
 					if (ajax.responseText.trim() != "") {
@@ -145,7 +112,6 @@
 	}
 
 
-	// mydiv.innerHTML += product_html(obj.data[i], i);
 
 
 	function show_modal(modal) {
@@ -162,13 +128,13 @@
 		if (modal == "change") {
 			var mydiv = document.querySelector(".change");
 			mydiv.classList.remove("hide");
-			mydiv.querySelector(".change-amount").innerHTML = "2.99";
+			mydiv.querySelector(".change-amount").innerHTML = CHANGE;
 
 		}
 	}
 
 	function hide_modal(e, modal) {
-		if (e.target.getAttribute("role") == "close-button") {
+		if (e == true || e.target.getAttribute("role") == "close-button") {
 			if (modal == "checkout") {
 				var mydiv = document.querySelector(".checkout");
 				mydiv.classList.add("hide");
@@ -184,12 +150,46 @@
 
 	}
 
-	function validate_amount_paid(e)
-	{
+	function validate_amount_paid(e) {
 		var amount = e.currentTarget.parentNode.querySelector(".input-pay-amount").value.trim();
-		console.log(amount);
-		hide_modal(e, 'checkout');
+		if (amount == "") {
+			// alert("enter amount You Jackass!");
+			return;
+		}
+		// mydiv.querySelector(".input-pay-amount").focus();
+		amount = parseFloat(amount);
+		CHANGE = amount - GTOTAL;
+		CHANGE = CHANGE.toFixed(2);
+		if (amount < GTOTAL) {
+			var mydiv = document.querySelector(".change-amount");
+			mydiv.style.backgroundColor = "red";
+		}
+
+		CHANGE = amount - GTOTAL;
+		CHANGE = CHANGE.toFixed(2);
+
+		hide_modal(true, 'checkout');
 		show_modal('change');
+
+		ITEMS_NEW = [];
+		for(var i = 0; i<ITEMS.length; i++)
+		{
+			var tmp = {};
+			tmp.id = (ITEMS[i]['id'] );
+			tmp.qty = (ITEMS[i]['qty']);
+			
+			ITEMS_NEW.push(tmp);
+		}
+
+		send_data({
+			data_type: "checkout",
+			text: ITEMS_NEW
+		})
+		console.log(ITEMS_NEW);
+		
+
+		ITEMS = [];
+		refresh_items_display()
 
 	}
 
@@ -210,6 +210,7 @@
 		data_type: "search",
 		text: ""
 	});
+
 </script>
 <script src="assets/js/handleresult.js"></script>
 <script src="assets/js/loadcard.js"></script>
