@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	$product = new Products();
 
 	$_POST['date'] = date("Y-m-d H:i:s");
-	$_POST['user_id'] = auth("id");
+	$_POST['user_id'] = Auth::get("id");
 	$_POST['barcode'] = empty($_POST['barcode']) ? $product->generate_barcode():$_POST['barcode'];
 	
 	if(!empty($_FILES['image']['name']))
@@ -35,7 +35,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 		redirect('admin&tab=products');
 	}
-
 
 }
 require views_path('products/product-new');

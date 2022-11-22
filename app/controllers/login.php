@@ -16,4 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       $errors['user_email'] = "Check Email";
    }
 }
+
+function authenticate($data)
+{ $_SESSION['USER'] = $data; }
+
 require views_path('auth/login');
+

@@ -32,7 +32,7 @@ if (!empty($raw_data)) {
          if ($OBJ['data_type'] == "checkout") {
             $data       =  $OBJ['text'];
             $receipt_no =  get_receipt_no();
-            $user_id    =  1;
+            $user_id    =  Auth::get("id");
             $date       =  date("Y-m-d H:i:s");
 
             $db = new Database();

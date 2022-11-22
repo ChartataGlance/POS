@@ -1,4 +1,6 @@
 <?php
+defined("ROOTPATH") ? "" : die();
+
 class Auth
 {
    public static function  get($column)
@@ -12,7 +14,7 @@ class Auth
    {
       if (!empty($_SESSION['USER'])) {
          $db = new Database();
-         if ($check = $db->query("select * from users where email = :email limit 1",  ['email' => $_SESSION['USER']['email']])) {
+         if ($check = $db->query("select * from users where user_email = :user_email limit 1",  ['user_email' => $_SESSION['USER']['user_email']])) {
             return true;
          }
       }
@@ -35,4 +37,34 @@ class Auth
       return false;
 
    }
+
+   public static function setMessage($message)
+	{
+		$_SESSION['MESSAGE'] = $message;
+	}
+
+	public static function getMessage()
+	{
+		if(!empty($_SESSION['MESSAGE'])){
+
+			$message = $_SESSION['MESSAGE'];
+			unset($_SESSION['MESSAGE']);
+			return $message;
+		}
+	}
+
 }
+
+
+	
+
+
+
+
+
+
+	
+
+
+	
+

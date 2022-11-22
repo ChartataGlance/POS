@@ -5,7 +5,7 @@ require "../app/core/functions.php";
 require "../app/core/model.php";
 
 spl_autoload_register('my_function');
-
+//dinamic access to modals
 function my_function($class)
 {
   $cfile =  "../app/modals/".ucfirst($class). ".php";

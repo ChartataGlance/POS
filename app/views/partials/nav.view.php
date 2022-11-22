@@ -87,9 +87,11 @@
    <ul class="navbar-links-ul">
       <li class="nav-item"><a class="nav-link-li active" aria-current="page" href="index.php?page=home">home</a></li>
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=admin">admin</a></li>
+      <?php if(! Auth::logged_in()):?>
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=login">login</a></li>
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=signup">signup</a></li>
-      <li class="nav-item"><a class="nav-link-li" href="index.php?page=logout">logout</a></li>
+      <?php endif; ?>
+
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=shop">Shop</a></li>
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=pos">pos</a></li>
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=cart">Cart</a></li>

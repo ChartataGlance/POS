@@ -21,6 +21,7 @@ function esc($str)
 {
    return htmlspecialchars($str);
 }
+
 function redirect($page)
 {
    header("Location: index.php?page=" . $page);
@@ -37,10 +38,7 @@ function set_value($key, $default = "")
    return $default;
 }
 
-function authenticate($data)
-{
-   $_SESSION['USER'] = $data;
-}
+
 
 
 
