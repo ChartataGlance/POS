@@ -30,41 +30,24 @@ class Auth
       $access['user']         = ['admin', 'supervisor', 'cashier', 'user'];
 
       $myrole = self::get('role');
-      if(in_array($myrole, $access[$role]));
-      {
+      if (in_array($myrole, $access[$role])); {
          return true;
       }
       return false;
-
    }
 
    public static function setMessage($message)
-	{
-		$_SESSION['MESSAGE'] = $message;
-	}
+   {
+      $_SESSION['MESSAGE'] = $message;
+   }
 
-	public static function getMessage()
-	{
-		if(!empty($_SESSION['MESSAGE'])){
+   public static function getMessage()
+   {
+      if (!empty($_SESSION['MESSAGE'])) {
 
-			$message = $_SESSION['MESSAGE'];
-			unset($_SESSION['MESSAGE']);
-			return $message;
-		}
-	}
-
+         $message = $_SESSION['MESSAGE'];
+         unset($_SESSION['MESSAGE']);
+         return $message;
+      }
+   }
 }
-
-
-	
-
-
-
-
-
-
-	
-
-
-	
-

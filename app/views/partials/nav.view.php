@@ -93,7 +93,9 @@
       <?php endif; ?>
 
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=shop">Shop</a></li>
+      <?php if(! Auth::access('cashier') ):?>
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=pos">pos</a></li>
+      <?php endif; ?>
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=cart">Cart</a></li>
       <li class="nav-item"><a class="nav-link-li" href="index.php?page=product-new">product-new</a></li>
    </ul>

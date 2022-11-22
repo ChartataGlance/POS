@@ -19,9 +19,8 @@
    <div class="navbar-nav">
       <ul class="navbar-links-ul">
       <li class="nav-item"><a class="nav-link-li <?= ! $tab || $tab == 'dashboard' ?  'active' : '' ?>" href="index.php?page=admin&tab=dashboard">dashboard</a></li>
-      <li class="nav-item"><a class="nav-link-li <?= ! $tab || $tab == 'users' ?    'active' : '' ?>"   href="index.php?page=admin&tab=users">  users</a></li>
-      <li class="nav-item"><a class="nav-link-li <?= ! $tab || $tab == 'products' ? 'active' : '' ?>"   href="index.php?page=admin&tab=products">products</a></li>
-      <li class="nav-item"><a class="nav-link-li"                                                       href="index.php?page=logout">logout</a></li>
+      <li class="nav-item"><a class="nav-link-li <?= ! $tab || $tab == 'users' ?      'active' : '' ?>" href="index.php?page=admin&tab=users">  users</a></li>
+      <li class="nav-item"><a class="nav-link-li <?= ! $tab || $tab == 'products' ?   'active' : '' ?>" href="index.php?page=admin&tab=products">products</a></li>
       </ul>
    </div>
    <div >
