@@ -36,7 +36,7 @@ function refresh_items_display() {
 	}
 
 	var gtotal_div = document.querySelector(".js-gtotal");
-	gtotal_div.innerHTML = "Total: £" + grant_total;
+	gtotal_div.innerHTML = "Total: £" + grant_total.toFixed(2);
 	GTOTAL = grant_total;
 }
 function handle_result(result) {
